@@ -1,0 +1,26 @@
+name: Build OCaml
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        ocaml: [4.06.1, 4.07.1, 4.08.1, 4.09.1]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - uses: actions/checkout@v2
+    - name: Install esy
+      run: npm install -g esy
+    - name: Build OCaml ${{ matrix.ocaml }}
+      working-directory: ./tests
+      run: esy @${{ matrix.ocaml }}
+      shell: bash
