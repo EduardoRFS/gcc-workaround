@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "ocaml": "4.9.1000"
+  },
+  "resolutions": {
+    "ocaml": {
+      "source": "esy-ocaml/ocaml:package.json#93c122c2ca232d532bcbe86c0e374595f084f7f0",
+      "override": {
+        "dependencies": {
+          "esy-gcc-workaround": "*"
+        }
+      }
+    },
+    "esy-gcc-workaround": "link:../package.json"
+  }
+}
