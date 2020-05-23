@@ -1,0 +1,8 @@
+{
+  "name": "esy-gcc-workaround",
+  "version": "0.0.0",
+  "dependencies": {},
+  "esy": {
+    "install": "#{os == 'linux' ? 'sh install-gcc-workaround.sh' : 'echo'}"
+  }
+}
