@@ -13,7 +13,7 @@ if [ "$(uname)" == 'Linux' ]; then
 
     if [ $MAJOR_VERSION -ge $MAJOR_VERSION_TO_PATCH ]; then
         echo "#! $SH" >> $cur__bin/gcc
-        echo "eval $CC -fcommon '\"\$@\"'" >> $cur__bin/gcc
+        echo "exec $CC -fcommon '\"\$@\"'" >> $cur__bin/gcc
         chmod +x $cur__bin/gcc
     fi
 fi
